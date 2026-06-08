@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a free HVAC duct inspection with DuctMax.">
+  <title>Book a Free Inspection | DuctMax</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="DUCTO MAX logo.png">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="noise-overlay"></div>
+
+  <div class="form-page">
+    <div class="form-wrapper">
+      <a href="index.html" class="form-back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Home
+      </a>
+      <div class="form-card">
+        <div class="form-header">
+          <img src="DUCTO MAX logo.png" alt="DuctMax Logo" class="form-logo-img" style="height: 60px; width: auto; margin-bottom: 20px;">
+          <h1 class="form-title">Book a Free Inspection</h1>
+          <p class="form-description">Fill in your details below and our team will contact you to schedule your free HVAC duct inspection.</p>
+        </div>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="inspection-form">
+          <div class="form-group">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" id="first-name" name="first-name" class="form-input" placeholder="Enter your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" id="last-name" name="last-name" class="form-input" placeholder="Enter your last name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

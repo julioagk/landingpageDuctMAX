@@ -1,0 +1,31 @@
+DUCTMAX
+1. Three valuable benefits
+Improves indoor air quality: We eliminate dust, dirt, debris, allergens, and other contaminants accumulated in the ducts, contributing to a cleaner and healthier environment for employees, clients, and visitors.
+Greater energy efficiency: Clean ducts allow for better air circulation, reducing the workload of the HVAC system and improving its overall operational performance.
+Extended equipment lifespan: By reducing the accumulation of contaminants, it decreases the wear and tear of critical components and lowers the probability of premature failures.
+2. Paleta de colores (Propuesta sugerida para climatización y calidad del aire)
+Azul Cielo (#0EA5E9): Representa el aire limpio, frescura, control de clima y pureza profesional.
+Gris Acero (#475569): Transmite el carácter industrial, sólido y técnico del mantenimiento de ductos y maquinaria.
+Blanco Puro (#FFFFFF): Para espacios limpios y abiertos que refuerzan visualmente el concepto de un ambiente libre de polvo y sanitizado.
+3. 3-4 Characteristics
+Elimination of unpleasant odors: Deep cleaning helps remove particles and residues that generate foul odors inside the facilities.
+Services tailored to each project: We design cleaning and maintenance programs according to the facility's size, usage level, and operational requirements (Hospitals, Hotels, Industry, and Schools).
+Advanced technology and specialized processes: We use structured procedures focused on maximizing the cleaning, efficiency, and safety of air distribution systems.
+Long-term results: We help our clients reduce operational costs, lower future maintenance expenses, and protect the investment made in their climate control equipment.
+4. Credibility (Why trust DuctMax?)
+HVAC system specialists: We focus exclusively on services that improve the performance, efficiency, and reliability of commercial and industrial air conditioning and ventilation systems.
+Commitment to air quality: We understand the vital importance of providing healthy environments for employees, clients, patients, students, and users of any facility.
+Professional and seamless approach: Every project is developed under structured procedures designed to minimize operational disruptions while guaranteeing visible and measurable results.
+5. CTA Button
+Exact text: Book a free inspection
+
+EL BOTON CTA TE REDIRIGA A UN FORMULARIO en otra pantalla
+
+que pedirá:
+NOMBRE
+APELLIDO
+CORREO ELECTRONICO
+
+EN INGLES OBVIO
+
+se usara formspree 
