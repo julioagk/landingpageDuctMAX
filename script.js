@@ -274,4 +274,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // =========================================
+  // BEFORE / AFTER COMPARISON SLIDER (v2)
+  // Scrubber is BELOW the image, no line on image
+  // =========================================
+  const scrubber    = document.getElementById('cmpScrubber');
+  const beforeClip  = document.getElementById('cmpBeforeClip');
+  const dot         = document.getElementById('cmpDot');
+  const trackFill   = document.getElementById('cmpTrackFill');
+
+  if (scrubber && beforeClip && dot && trackFill) {
+    let isDragging = false;
+    let pct = 0.5; // 50% start
+
+    const applyPosition = (p) => {
+      pct = Math.max(0.01, Math.min(0.99, p));
+      const pctStr = (pct * 100).toFixed(2) + '%';
+
+      // Clip the before image: show left portion
+      const rightInset = ((1 - pct) * 100).toFixed(2) + '%';
+      beforeClip.style.clipPath = `inset(0 ${rightInset} 0 0)`;
+
+      // Move dot along the track
+      dot.style.left = pctStr;
+
+      // Fill the track
+      trackFill.style.width = pctStr;
+    };
+
+    // Init at 50%
+    applyPosition(0.5);
+
+    const getPct = (clientX) => {
+      const rect = scrubber.getBoundingClientRect();
+      return (clientX - rect.left) / rect.width;
+    };
+
+    // Mouse
+    scrubber.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      applyPosition(getPct(e.clientX));
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      applyPosition(getPct(e.clientX));
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    // Touch
+    scrubber.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      applyPosition(getPct(e.touches[0].clientX));
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      applyPosition(getPct(e.touches[0].clientX));
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => { isDragging = false; });
+  }
+
 });

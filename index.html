@@ -92,17 +92,36 @@
         <div class="hero-shape hero-shape-1"></div>
         <div class="hero-shape hero-shape-2"></div>
         <div class="hero-shape hero-shape-3"></div>
-        <div class="hero-image-container">
-          <img src="imagen1.jpeg" alt="Before and after duct cleaning by DuctMax" id="hero-image">
-          <div class="hero-image-badge badge-before">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            BEFORE
+
+        <!-- Interactive Before/After Slider (new style) -->
+        <div class="comparison-wrap" id="comparisonWrap">
+
+          <!-- Image viewport: before clips over after -->
+          <div class="comparison-viewport">
+            <!-- AFTER image: full width, base layer -->
+            <img src="2.png" alt="Duct after cleaning" class="cmp-img cmp-after">
+            <!-- BEFORE image: clipped via clip-path, controlled by JS -->
+            <div class="cmp-before-clip" id="cmpBeforeClip">
+              <img src="1.png" alt="Duct before cleaning" class="cmp-img cmp-before">
+            </div>
+            <!-- Corner labels -->
+            <span class="cmp-label cmp-label-left">BEFORE</span>
+            <span class="cmp-label cmp-label-right">AFTER</span>
           </div>
-          <div class="hero-image-badge badge-after">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 10 11 15 8 12"/></svg>
-            AFTER
+
+          <!-- Scrubber track (outside / below images) -->
+          <div class="cmp-scrubber" id="cmpScrubber">
+            <div class="cmp-track">
+              <div class="cmp-track-fill" id="cmpTrackFill"></div>
+            </div>
+            <div class="cmp-dot" id="cmpDot">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
           </div>
+
         </div>
+
       </div>
     </div>
   </section>
@@ -114,7 +133,7 @@
     <div class="container">
       <div class="benefits-header animate-on-scroll">
         <span class="section-label">Why DuctMax</span>
-        <h2 class="section-title">Three Valuable Benefits</h2>
+        <h2 class="section-title">Valuable Benefits</h2>
       </div>
       <div class="benefits-grid">
         <div class="benefit-card animate-on-scroll" id="benefit-1">
@@ -123,7 +142,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           </div>
           <h3>Improves Indoor Air Quality</h3>
-          <p>We eliminate dust, dirt, debris, allergens, and other contaminants accumulated in the ducts, contributing to a cleaner and healthier environment for employees, clients, and visitors.</p>
         </div>
         <div class="benefit-card animate-on-scroll" id="benefit-2">
           <span class="benefit-number">02</span>
@@ -131,7 +149,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.97 17.55 11 21 11 21z"/></svg>
           </div>
           <h3>Greater Energy Efficiency</h3>
-          <p>Clean ducts allow for better air circulation, reducing the workload of the HVAC system and improving its overall operational performance.</p>
         </div>
         <div class="benefit-card animate-on-scroll" id="benefit-3">
           <span class="benefit-number">03</span>
@@ -139,36 +156,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
           </div>
           <h3>Extended Equipment Lifespan</h3>
-          <p>By reducing the accumulation of contaminants, it decreases the wear and tear of critical components and lowers the probability of premature failures.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Results Before & After Section -->
-  <section class="results" id="results" style="padding: 100px 0; position: relative; z-index: 3;">
-    <div class="container">
-      <div class="benefits-header animate-on-scroll">
-        <span class="section-label">Our Results</span>
-        <h2 class="section-title">Before & After</h2>
-        <p class="section-subtitle">See the difference our professional duct cleaning services make in your HVAC systems.</p>
-      </div>
-      <div class="before-after-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
-        <div class="result-card animate-on-scroll" style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(248, 113, 113, 0.2); box-shadow: var(--shadow-lg);">
-          <img src="antes.png" alt="Before duct cleaning" style="width: 100%; height: 300px; object-fit: cover;">
-          <div class="hero-image-badge badge-before" style="position: absolute; top: 16px; left: 16px; bottom: auto;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            BEFORE
-          </div>
-        </div>
-        <div class="result-card animate-on-scroll" style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(52, 211, 153, 0.2); box-shadow: var(--shadow-lg);">
-          <img src="despues.png" alt="After duct cleaning" style="width: 100%; height: 300px; object-fit: cover;">
-          <div class="hero-image-badge badge-after" style="position: absolute; top: 16px; left: 16px; bottom: auto;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 10 11 15 8 12"/></svg>
-            AFTER
-          </div>
         </div>
       </div>
     </div>
@@ -190,7 +177,6 @@
           </div>
           <div class="characteristic-content">
             <h3>Elimination of Unpleasant Odors</h3>
-            <p>Deep cleaning helps remove particles and residues that generate foul odors inside the facilities.</p>
           </div>
         </div>
         <div class="characteristic-card animate-on-scroll" id="characteristic-2">
@@ -199,7 +185,6 @@
           </div>
           <div class="characteristic-content">
             <h3>Services Tailored to Each Project</h3>
-            <p>We design cleaning and maintenance programs according to the facility's size, usage level, and operational requirements (Hospitals, Hotels, Industry, Schools, and Residential).</p>
           </div>
         </div>
         <div class="characteristic-card animate-on-scroll" id="characteristic-3">
@@ -208,7 +193,6 @@
           </div>
           <div class="characteristic-content">
             <h3>Advanced Technology &amp; Specialized Processes</h3>
-            <p>We use structured procedures focused on maximizing the cleaning, efficiency, and safety of air distribution systems.</p>
           </div>
         </div>
         <div class="characteristic-card animate-on-scroll" id="characteristic-4">
@@ -217,7 +201,6 @@
           </div>
           <div class="characteristic-content">
             <h3>Long-Term Results</h3>
-            <p>We help our clients reduce operational costs, lower future maintenance expenses, and protect the investment made in their climate control equipment.</p>
           </div>
         </div>
       </div>
@@ -239,21 +222,18 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>HVAC System Specialists</h3>
-          <p>We focus exclusively on services that improve the performance, efficiency, and reliability of commercial and industrial air conditioning and ventilation systems.</p>
         </div>
         <div class="credibility-card animate-on-scroll" id="credibility-2">
           <div class="credibility-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Commitment to Air Quality</h3>
-          <p>We understand the vital importance of providing healthy environments for employees, clients, patients, students, and users of any facility.</p>
         </div>
         <div class="credibility-card animate-on-scroll" id="credibility-3">
           <div class="credibility-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Professional &amp; Seamless Approach</h3>
-          <p>Every project is developed under structured procedures designed to minimize operational disruptions while guaranteeing visible and measurable results.</p>
         </div>
       </div>
     </div>
