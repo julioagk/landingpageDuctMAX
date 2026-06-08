@@ -93,31 +93,20 @@
         <div class="hero-shape hero-shape-2"></div>
         <div class="hero-shape hero-shape-3"></div>
 
-        <!-- Interactive Before/After Slider (new style) -->
+        <!-- Interactive Before/After Slider (mouse-follow) -->
         <div class="comparison-wrap" id="comparisonWrap">
 
-          <!-- Image viewport: before clips over after -->
-          <div class="comparison-viewport">
-            <!-- AFTER image: full width, base layer -->
-            <img src="2.png" alt="Duct after cleaning" class="cmp-img cmp-after">
-            <!-- BEFORE image: clipped via clip-path, controlled by JS -->
+          <!-- Image viewport: AFTER clips over BEFORE, follows cursor -->
+          <div class="comparison-viewport" id="comparisonViewport">
+            <!-- BEFORE image: full width, base layer -->
+            <img src="1.png?v=2" alt="Duct before cleaning" class="cmp-img cmp-after">
+            <!-- AFTER image: clipped via clip-path, controlled by JS -->
             <div class="cmp-before-clip" id="cmpBeforeClip">
-              <img src="1.png" alt="Duct before cleaning" class="cmp-img cmp-before">
+              <img src="2.png?v=2" alt="Duct after cleaning" class="cmp-img cmp-before">
             </div>
             <!-- Corner labels -->
             <span class="cmp-label cmp-label-left">BEFORE</span>
             <span class="cmp-label cmp-label-right">AFTER</span>
-          </div>
-
-          <!-- Scrubber track (outside / below images) -->
-          <div class="cmp-scrubber" id="cmpScrubber">
-            <div class="cmp-track">
-              <div class="cmp-track-fill" id="cmpTrackFill"></div>
-            </div>
-            <div class="cmp-dot" id="cmpDot">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
           </div>
 
         </div>
@@ -222,18 +211,21 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>HVAC System Specialists</h3>
+          <p>We focus exclusively on services that improve the performance, efficiency, and reliability of commercial and industrial air conditioning and ventilation systems.</p>
         </div>
         <div class="credibility-card animate-on-scroll" id="credibility-2">
           <div class="credibility-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Commitment to Air Quality</h3>
+          <p>We understand the vital importance of providing healthy environments for employees, clients, patients, students, and users of any facility.</p>
         </div>
         <div class="credibility-card animate-on-scroll" id="credibility-3">
           <div class="credibility-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Professional &amp; Seamless Approach</h3>
+          <p>Every project is developed under structured procedures designed to minimize operational disruptions while guaranteeing visible and measurable results.</p>
         </div>
       </div>
     </div>

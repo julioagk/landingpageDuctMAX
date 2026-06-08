@@ -275,66 +275,89 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================
-  // BEFORE / AFTER COMPARISON SLIDER (v2)
-  // Scrubber is BELOW the image, no line on image
+  // BEFORE / AFTER — Mouse-follow slider
+  // Auto-animates on load, then follows cursor
   // =========================================
-  const scrubber    = document.getElementById('cmpScrubber');
-  const beforeClip  = document.getElementById('cmpBeforeClip');
-  const dot         = document.getElementById('cmpDot');
-  const trackFill   = document.getElementById('cmpTrackFill');
+  const viewport   = document.getElementById('comparisonViewport');
+  const beforeClip = document.getElementById('cmpBeforeClip');
 
-  if (scrubber && beforeClip && dot && trackFill) {
-    let isDragging = false;
-    let pct = 0.5; // 50% start
+  if (viewport && beforeClip) {
+    let autoRunning = true;
+    let animFrame   = null;
+    let startTime   = null;
+    let mouseInside = false;
 
+    // ── Core position updater ──
     const applyPosition = (p) => {
-      pct = Math.max(0.01, Math.min(0.99, p));
-      const pctStr = (pct * 100).toFixed(2) + '%';
-
-      // Clip the before image: show left portion
-      const rightInset = ((1 - pct) * 100).toFixed(2) + '%';
+      p = Math.max(0.01, Math.min(0.99, p));
+      const rightInset = ((1 - p) * 100).toFixed(2) + '%';
       beforeClip.style.clipPath = `inset(0 ${rightInset} 0 0)`;
+    };
 
-      // Move dot along the track
-      dot.style.left = pctStr;
+    // ── Auto animation config ──
+    const AUTO_DELAY    = 2000;   // ms before animation starts
+    const AUTO_DURATION = 8000;   // ms per full back-and-forth cycle (slow)
+    const AUTO_CYCLES   = 2;      // how many cycles before stopping
+    const AUTO_MIN      = 0.10;
+    const AUTO_MAX      = 0.90;
 
-      // Fill the track
-      trackFill.style.width = pctStr;
+    const runAuto = (timestamp) => {
+      if (!autoRunning || mouseInside) return;
+      if (!startTime) startTime = timestamp;
+
+      const elapsed = timestamp - startTime;
+      const totalMs = AUTO_DURATION * AUTO_CYCLES;
+
+      if (elapsed >= totalMs) {
+        applyPosition(0.5);
+        autoRunning = false;
+        return;
+      }
+
+      // Sine wave: starts at 50%, drifts right then sweeps left-right
+      const progress = elapsed / AUTO_DURATION;
+      const sine     = Math.sin(progress * Math.PI * 2 - Math.PI / 2); // starts -1
+      const mid      = (AUTO_MIN + AUTO_MAX) / 2;
+      const amp      = (AUTO_MAX - AUTO_MIN) / 2;
+      applyPosition(mid + amp * sine);
+
+      animFrame = requestAnimationFrame(runAuto);
+    };
+
+    const stopAuto = () => {
+      autoRunning = false;
+      if (animFrame) cancelAnimationFrame(animFrame);
     };
 
     // Init at 50%
     applyPosition(0.5);
 
-    const getPct = (clientX) => {
-      const rect = scrubber.getBoundingClientRect();
-      return (clientX - rect.left) / rect.width;
-    };
+    // Start auto after delay
+    setTimeout(() => {
+      if (autoRunning) animFrame = requestAnimationFrame(runAuto);
+    }, AUTO_DELAY);
 
-    // Mouse
-    scrubber.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      applyPosition(getPct(e.clientX));
+    // ── Mouse follow on the image ──
+    viewport.addEventListener('mousemove', (e) => {
+      mouseInside = true;
+      stopAuto();
+      const rect = viewport.getBoundingClientRect();
+      const pct  = (e.clientX - rect.left) / rect.width;
+      applyPosition(pct);
     });
 
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      applyPosition(getPct(e.clientX));
+    // When mouse leaves, gently animate back to 50%
+    viewport.addEventListener('mouseleave', () => {
+      mouseInside = false;
     });
 
-    window.addEventListener('mouseup', () => { isDragging = false; });
-
-    // Touch
-    scrubber.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      applyPosition(getPct(e.touches[0].clientX));
+    // Touch support on the image
+    viewport.addEventListener('touchmove', (e) => {
+      stopAuto();
+      const rect = viewport.getBoundingClientRect();
+      const pct  = (e.touches[0].clientX - rect.left) / rect.width;
+      applyPosition(pct);
     }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      applyPosition(getPct(e.touches[0].clientX));
-    }, { passive: true });
-
-    window.addEventListener('touchend', () => { isDragging = false; });
   }
 
 });
